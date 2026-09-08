@@ -1,16 +1,18 @@
 # AI Interview
 
-一个面向 **Agent 应用开发岗位求职者** 的中文开源面试题库。
-
-本项目通过社区协作持续收集、修订和完善 Agent 应用开发相关的面试题与参考答案，帮助求职者系统理解核心概念、工程方法和真实项目中的常见问题，同时也为面试官提供可复用的题目参考。
+![AI Interview：Agent 应用开发中文面试题库](assets/readme-hero.png)
 
 <p align="center">
-  <a href="https://yuanjin-tech.github.io/agent-interview/">在线题库</a>
+  <a target="_blank" href="https://yuanjin-tech.github.io/agent-interview/">在线题库</a>
   ·
   <a href="docs/contributing-a-question.md">贡献新问题</a>
   ·
   <a href="docs/modifying-a-question.md">修改已有问题</a>
 </p>
+
+一个面向 **Agent 应用开发岗位求职者** 的中文开源面试题库。
+
+本项目通过社区协作持续收集、修订和完善 Agent 应用开发相关的面试题与参考答案，帮助求职者系统理解核心概念、工程方法和真实项目中的常见问题，同时也为面试官提供可复用的题目参考。
 
 ## 开源许可
 
