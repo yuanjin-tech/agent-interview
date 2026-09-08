@@ -4,37 +4,25 @@
   "description": "用于校验题目目录中的单条 AI 面试题元数据。",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "id",
-    "title",
-    "difficulty"
-  ],
+  "required": ["id", "title", "difficulty"],
   "properties": {
     "id": {
       "type": "string",
       "description": "题目的永久唯一 UUID，创建后不得修改。",
       "format": "uuid",
       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      "examples": [
-        "550e8400-e29b-41d4-a716-446655440000"
-      ]
+      "examples": ["550e8400-e29b-41d4-a716-446655440000"]
     },
     "title": {
       "type": "string",
       "description": "面试题标题。",
       "minLength": 1,
-      "examples": [
-        "向量检索中召回率较低，应该如何排查？"
-      ]
+      "examples": ["向量检索中召回率较低，应该如何排查？"]
     },
     "difficulty": {
       "type": "string",
       "description": "题目难度。",
-      "enum": [
-        "beginner",
-        "intermediate",
-        "advanced"
-      ]
+      "enum": ["easy", "medium", "hard"]
     }
   }
 }

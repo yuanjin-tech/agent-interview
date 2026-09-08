@@ -1,4 +1,114 @@
-概念:
+概念题:
+  - id: 720ad718-4de7-4bed-929d-e93901f3ed4f
+    title: 什么是 Agent，它与普通 LLM 应用有什么区别？
+    difficulty: easy
+  - id: cd0f2c03-334b-4dc7-a82a-2fb23b5eebf3
+    title: 什么情况应该使用 Agent，什么情况更适合确定性工作流？
+    difficulty: medium
+  - id: 81a98cca-4d9f-49bc-8a41-ff239ba6fbbb
+    title: ReAct 与 Plan-and-Execute 架构各有什么优缺点？
+    difficulty: medium
+  - id: 40bd4733-7173-4a9e-a109-f1130cac7e6f
+    title: 多 Agent 系统中 Manager 模式与 Handoff 模式有什么区别？
+    difficulty: medium
+  - id: d8a733e2-b5e8-4f0d-859e-4977eff46b58
+    title: Agent 的短期记忆和长期记忆有什么区别？
+    difficulty: easy
+  - id: 988781b0-8028-4380-809d-94603029ab85
+    title: Agentic RAG 与固定 RAG 流程有什么区别？
+    difficulty: medium
   - id: 58596f25-801d-4b42-a7af-6a98292c57f7
-    title: SKILL 和 MCP 的区别
-    difficulty: beginner
+    title: Skill 和 MCP 的区别是什么？
+    difficulty: easy
+  - id: 9b65841d-1ab2-436f-b5de-59a7d7821b15
+    title: MCP 的 Host、Client 和 Server 分别负责什么？
+    difficulty: easy
+  - id: a4b35117-f7a3-4ba7-ba86-c85b5a63c607
+    title: MCP 中的 Prompts、Resources 和 Tools 有什么区别？
+    difficulty: medium
+  - id: 19caf3c2-4191-4768-a4ac-2e45f5a922cf
+    title: 为什么评估 Agent 不能只看最终答案？
+    difficulty: medium
+  - id: 7175ecb3-ec2a-42bb-b0ea-7fe31093e7d7
+    title: 直接提示注入和间接提示注入有什么区别？
+    difficulty: medium
+
+Agent 设计:
+  - id: 0d68ae21-1ec8-4392-9320-1c0b7a724dc3
+    title: Agent 的运行循环应如何设计和终止？
+    difficulty: medium
+  - id: 0b8a5c93-b0c3-428c-b64a-bc6ba55d7693
+    title: 如何判断应该使用单 Agent 还是多 Agent 架构？
+    difficulty: hard
+  - id: 62b46880-e06b-42ef-a242-9975a1fe7184
+    title: 如何设计一个容易被 Agent 正确调用的工具？
+    difficulty: medium
+  - id: 2d26d6ea-bf30-43a7-8ba9-8d1f2651126c
+    title: 工具调用的参数校验、重试和幂等性应如何设计？
+    difficulty: hard
+  - id: 87684088-ba67-4e16-9890-d8c19b68823f
+    title: Agent 工具过多且经常选错时应如何优化？
+    difficulty: medium
+  - id: 48a56e63-b111-499a-b850-6b86088c6d7d
+    title: Agent 上下文窗口不够时应如何处理？
+    difficulty: medium
+  - id: b9cb797c-5203-4e91-8826-f7802a7ae589
+    title: 如何防止 Agent 长期记忆被错误信息污染？
+    difficulty: hard
+  - id: fce6b251-10ba-43f8-a0b1-dd5e48573388
+    title: RAG Agent 的检索召回率较低时应如何排查？
+    difficulty: medium
+  - id: c4da253d-2a9f-4c26-8f9e-3d38a411eb63
+    title: 如何防范检索内容中的间接提示注入？
+    difficulty: hard
+  - id: ba570551-a9ee-421d-bd35-458a40f0e537
+    title: 远程 MCP Server 的身份认证和授权应如何设计？
+    difficulty: hard
+  - id: b12aaaac-4c01-4183-b4cf-91fa26ac06e2
+    title: 子 Agent 之间应共享全部上下文还是相互隔离？
+    difficulty: hard
+  - id: 4be72163-59ba-4c67-a872-292e38dd9592
+    title: Agent 的哪些操作应该设置人工审批？
+    difficulty: medium
+  - id: ef8d18ec-3f79-4ea2-9727-8d1dd4cbef95
+    title: 多 Agent 对同一任务产生冲突结论时应如何处理？
+    difficulty: hard
+  - id: bf8e8292-5c81-4031-a25a-183e4781af34
+    title: 如何为 Agent 建立一套离线与在线评测体系？
+    difficulty: hard
+  - id: 04253a46-dc2a-4622-87b7-232023f37053
+    title: 使用 LLM-as-a-Judge 评测 Agent 有哪些风险，如何降低偏差？
+    difficulty: hard
+  - id: b47858b1-1acf-4cff-8b38-181599e0fd56
+    title: 如何对可调用外部系统的 Agent 实施最小权限？
+    difficulty: hard
+  - id: 18f7bbd8-d8ce-4b23-8407-d11d04e4c60a
+    title: Agent 系统中的密钥、个人信息和日志应如何保护？
+    difficulty: hard
+  - id: 1ddf323c-da88-4b8f-8871-69985739168d
+    title: 长时间运行的 Agent 如何实现中断恢复？
+    difficulty: hard
+  - id: 41358f66-c849-4f7b-8b6f-2bdcb87ed056
+    title: Agent 重试后重复发送邮件或重复扣款，应如何修复？
+    difficulty: hard
+  - id: 698b32ed-04e1-4ecb-a687-dd2fd3cd690c
+    title: Agent 陷入无限循环或工具震荡时应如何排查？
+    difficulty: medium
+  - id: 6c75e105-3873-427e-83fa-6e5a2870486c
+    title: 如何降低 Agent 的响应延迟和模型成本？
+    difficulty: medium
+  - id: c92467be-a106-43d6-816e-16eaae326f03
+    title: 高并发 Agent 系统应如何处理限流和背压？
+    difficulty: hard
+  - id: 33aeeb9f-965b-45ef-b4d4-7599713473d1
+    title: Agent 的提示词、模型和工具升级应如何发布与回滚？
+    difficulty: hard
+  - id: 0c3b0f57-70e6-49b6-8646-6c443fd75809
+    title: 一个 Agent 工作流中应如何为不同节点选择模型？
+    difficulty: medium
+  - id: 41ac54f3-6d20-4b90-95fe-be641e071f79
+    title: Agent 效果不好时，应如何判断用提示词、RAG 还是微调解决？
+    difficulty: hard
+  - id: 54d83f0b-8076-497c-8551-ea66a05627fc
+    title: 针对工具调用进行微调时，训练数据和评测应如何设计？
+    difficulty: hard

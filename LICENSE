@@ -1,0 +1,28 @@
+AI Interview License Notice
+
+Unless otherwise noted, this repository is made available under two licenses:
+
+1. Educational and documentation content
+
+   The question bank and documentation, including README.md, files under
+   docs/ and questions/, and catalog.yaml, are licensed under the Creative
+   Commons Attribution 4.0 International License (CC BY 4.0).
+
+   You may share and adapt this material for any purpose, including commercial
+   use, provided that you give appropriate credit, provide a link to the
+   license, and indicate whether changes were made.
+
+   Full license terms:
+   https://creativecommons.org/licenses/by/4.0/legalcode
+
+   Suggested attribution:
+   "AI Interview contributors, licensed under CC BY 4.0."
+
+2. Software
+
+   Source code and associated engineering files, including files under
+   scripts/, schemas/, and tests/, as well as Makefile, pyproject.toml, and
+   uv.lock, are licensed under the MIT License. The full MIT License text is
+   provided in LICENSE-CODE.
+
+Third-party materials, if any, remain subject to their own license terms.
