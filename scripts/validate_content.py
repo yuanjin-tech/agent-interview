@@ -68,11 +68,6 @@ def parse_sections(markdown: str) -> dict[str, str]:
     return sections
 
 
-def _plain_question_title(value: str) -> str:
-    """将问题段落规范化为可与目录比较的单行文本。"""
-    return " ".join(line.strip() for line in value.splitlines() if line.strip())
-
-
 def _validate_local_links(path: Path, markdown: str, root: Path) -> list[Issue]:
     issues: list[Issue] = []
     for raw_target in MARKDOWN_LINK.findall(markdown):
@@ -183,15 +178,6 @@ def validate_project(root: Path = PROJECT_ROOT) -> list[Issue]:
         for section in REQUIRED_SECTIONS:
             if not sections.get(section, "").strip():
                 issues.append(Issue(relative_path, f"缺少非空的“# {section}”部分。"))
-
-        occurrences = entries_by_id.get(question_id)
-        if occurrences and sections.get("问题"):
-            catalog_title = occurrences[0][1].get("title")
-            markdown_title = _plain_question_title(sections["问题"])
-            if isinstance(catalog_title, str) and markdown_title != catalog_title:
-                issues.append(
-                    Issue(relative_path, f"问题文字与 catalog.yaml 标题不一致：{markdown_title!r}。")
-                )
 
         issues.extend(_validate_local_links(question_path, markdown, root))
 

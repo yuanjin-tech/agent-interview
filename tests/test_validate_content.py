@@ -77,13 +77,20 @@ class ValidateContentTests(unittest.TestCase):
         self.assertTrue(any("缺少 questions/" in message for message in messages))
         self.assertTrue(any("没有收录" in message for message in messages))
 
-    def test_title_and_required_sections_are_checked(self) -> None:
+    def test_catalog_title_can_summarize_question(self) -> None:
+        self.write_valid_fixture()
+        (self.root / "questions" / f"{QUESTION_ID}.md").write_text(
+            "# 问题\n\n这是一个比目录标题更长、更完整的问题描述吗？\n\n# 回答\n\n参考回答。\n",
+            encoding="utf-8",
+        )
+        self.assertEqual(validate_project(self.root), [])
+
+    def test_required_sections_are_checked(self) -> None:
         self.write_valid_fixture()
         (self.root / "questions" / f"{QUESTION_ID}.md").write_text(
             "# 问题\n\n另一个问题？\n\n# 回答\n\n", encoding="utf-8"
         )
         messages = self.messages()
-        self.assertTrue(any("标题不一致" in message for message in messages))
         self.assertTrue(any("缺少非空的“# 回答”" in message for message in messages))
 
     def test_broken_local_link_fails(self) -> None:
