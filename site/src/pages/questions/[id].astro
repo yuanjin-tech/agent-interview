@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { difficultyLabels, getQuestions, type Question } from "../../lib/content";
+
+export function getStaticPaths() {
+  return getQuestions().map((question) => ({
+    params: { id: question.id },
+    props: { question }
+  }));
+}
+
+interface Props {
+  question: Question;
+}
+
+const { question } = Astro.props;
+const questions = getQuestions();
+const previous = questions[question.index - 1];
+const next = questions[question.index + 1];
+const base = import.meta.env.BASE_URL;
+const questionUrl = (id: string) => `${base}questions/${id}/`;
+---
+
+<BaseLayout title={question.title} description={question.description}>
+  <div class="page-shell detail-shell">
+    <SiteHeader />
+
+    <main id="main-content" class="question-page">
+      <nav class="breadcrumb" aria-label="面包屑">
+        <a href={base}>题目目录</a>
+        <span aria-hidden="true">/</span>
+        <span>Q{String(question.index + 1).padStart(2, "0")}</span>
+      </nav>
+
+      <header class="question-hero">
+        <div class="question-hero-meta">
+          <span class="detail-number">Q{String(question.index + 1).padStart(2, "0")}</span>
+          <div>
+            {question.categories.map((category) => <span class="detail-category">{category}</span>)}
+            <span class={`level level-${question.difficulty}`}>{difficultyLabels[question.difficulty]}</span>
+          </div>
+        </div>
+        <h1>{question.title}</h1>
+        <div class="hero-actions">
+          <p>先在心里组织答案，再往下看参考思路。</p>
+          <button class="copy-link" id="copy-link" type="button">复制题目链接</button>
+        </div>
+      </header>
+
+      <div class="answer-layout">
+        <aside class="answer-rail" aria-label="页面导航">
+          <span class="rail-line"></span>
+          <a href="#answer">01 参考回答</a>
+          {question.pointsHtml && <a href="#points">02 面试考察点</a>}
+          {question.referencesHtml && <a href="#references">03 参考资料</a>}
+        </aside>
+
+        <article class="answer-document">
+          <section id="answer" class="answer-section">
+            <div class="answer-heading">
+              <span>01</span>
+              <div><small>REFERENCE ANSWER</small><h2>参考回答</h2></div>
+            </div>
+            <div class="prose" set:html={question.answerHtml} />
+          </section>
+
+          {question.pointsHtml && (
+            <section id="points" class="answer-section points-section">
+              <div class="answer-heading">
+                <span>02</span>
+                <div><small>WHAT IT TESTS</small><h2>面试考察点</h2></div>
+              </div>
+              <div class="prose" set:html={question.pointsHtml} />
+            </section>
+          )}
+
+          {question.referencesHtml && (
+            <section id="references" class="answer-section references-section">
+              <div class="answer-heading">
+                <span>03</span>
+                <div><small>FURTHER READING</small><h2>参考资料</h2></div>
+              </div>
+              <div class="prose" set:html={question.referencesHtml} />
+            </section>
+          )}
+        </article>
+      </div>
+
+      <nav class="question-pagination" aria-label="题目切换">
+        {previous ? (
+          <a class="pagination-link previous" href={questionUrl(previous.id)}>
+            <small>← 上一题</small>
+            <span>{previous.title}</span>
+          </a>
+        ) : <span></span>}
+        {next ? (
+          <a class="pagination-link next" href={questionUrl(next.id)}>
+            <small>下一题 →</small>
+            <span>{next.title}</span>
+          </a>
+        ) : <span></span>}
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>AI INTERVIEW / QUESTION {String(question.index + 1).padStart(2, "0")}</p>
+      <a href={base}>返回全部题目 ↗</a>
+    </footer>
+  </div>
+
+  <script>
+    const copyButton = document.querySelector<HTMLButtonElement>("#copy-link");
+    copyButton?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        copyButton.textContent = "已复制 ✓";
+        window.setTimeout(() => { copyButton.textContent = "复制题目链接"; }, 1800);
+      } catch {
+        copyButton.textContent = "复制失败";
+      }
+    });
+  </script>
+</BaseLayout>

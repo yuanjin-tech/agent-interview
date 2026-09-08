@@ -9,3 +9,16 @@ __pycache__/
 
 # vscode
 .vscode
+
+# frontend dependencies and build output
+site/node_modules/
+site/dist/
+site/.astro/
+site/coverage/
+site/*.tsbuildinfo
+
+# frontend local environment and logs
+site/.env
+site/.env.*
+!site/.env.example
+site/npm-debug.log*

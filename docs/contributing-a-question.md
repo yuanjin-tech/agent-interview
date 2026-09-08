@@ -34,7 +34,7 @@ uv run python scripts/create_question.py
 请先确保当前 Python 环境为 Python 3.11 或更高版本，并已安装项目依赖：
 
 ```bash
-python -m pip install questionary ruamel.yaml
+python -m pip install .
 python scripts/create_question.py
 ```
 
@@ -80,6 +80,13 @@ make new
 - 问题标题、难度和分类填写正确。
 - 回答内容完整、准确且易于理解。
 - `catalog.yaml` 和对应的 Markdown 文件都已包含在本次修改中。
+
+提交前运行内容校验和单元测试：
+
+```bash
+make validate
+make test
+```
 
 ## 5. 通过 Pull Request 提交
 

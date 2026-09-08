@@ -33,7 +33,7 @@
     title: 直接提示注入和间接提示注入有什么区别？
     difficulty: medium
 
-Agent 设计:
+场景题:
   - id: 0d68ae21-1ec8-4392-9320-1c0b7a724dc3
     title: Agent 的运行循环应如何设计和终止？
     difficulty: medium

@@ -22,7 +22,7 @@
         {
           "id": "550e8400-e29b-41d4-a716-446655440000",
           "title": "向量检索中召回率较低，应该如何排查？",
-          "difficulty": "intermediate"
+          "difficulty": "medium"
         }
       ]
     }

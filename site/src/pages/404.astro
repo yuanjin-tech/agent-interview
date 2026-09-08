@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="页面未找到" description="该页面不存在或已被移动。">
+  <div class="page-shell detail-shell">
+    <SiteHeader />
+    <main id="main-content" class="not-found">
+      <span>404</span>
+      <p>PAGE NOT FOUND</p>
+      <h1>这道题，暂时还没有答案。</h1>
+      <a href={base}>返回题目目录 ↗</a>
+    </main>
+  </div>
+</BaseLayout>

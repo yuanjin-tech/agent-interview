@@ -22,9 +22,9 @@ QUESTIONS_DIR = PROJECT_ROOT / "questions"
 
 NEW_CATEGORY = "__new_category__"
 DIFFICULTIES = (
-    Choice("初级", value="beginner"),
-    Choice("中级", value="intermediate"),
-    Choice("高级", value="advanced"),
+    Choice("初级", value="easy"),
+    Choice("中级", value="medium"),
+    Choice("高级", value="hard"),
 )
 
 

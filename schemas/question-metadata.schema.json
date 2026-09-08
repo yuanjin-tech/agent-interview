@@ -10,7 +10,7 @@
       "type": "string",
       "description": "题目的永久唯一 UUID，创建后不得修改。",
       "format": "uuid",
-      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
       "examples": ["550e8400-e29b-41d4-a716-446655440000"]
     },
     "title": {
