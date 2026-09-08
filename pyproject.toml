@@ -1,0 +1,9 @@
+[project]
+name = "ai-interview"
+version = "0.1.0"
+description = "面向 Agent 应用开发求职者的中文开源面试题库"
+requires-python = ">=3.11"
+dependencies = [
+    "questionary>=2.1.1",
+    "ruamel-yaml>=0.19.1",
+]
