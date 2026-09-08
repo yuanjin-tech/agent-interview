@@ -32,14 +32,17 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+
       - name: Install validation dependencies
-        run: python -m pip install .
+        run: uv sync --locked
 
       - name: Validate question content
-        run: python scripts/validate_content.py
+        run: uv run python scripts/validate_content.py
 
       - name: Run tests
-        run: python -m unittest discover -s tests -v
+        run: uv run python -m unittest discover -s tests -v
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
